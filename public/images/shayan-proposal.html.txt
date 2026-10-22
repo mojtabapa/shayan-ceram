@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>پیش‌قرارداد سامانه هوشمند کاشی شایان</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+<style>
+  @page {
+    size: A4;
+    margin: 15mm 12mm;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Vazirmatn', 'B Nazanin', Tahoma, sans-serif;
+    font-size: 11pt;
+    line-height: 1.9;
+    color: #222;
+    background: #fff;
+    direction: rtl;
+    text-align: justify;
+    padding: 20px;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+  
+  .cover {
+    text-align: center;
+    padding: 60px 20px;
+    border: 3px double #1F3A5F;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #f8f9fc 0%, #eef2f8 100%);
+    page-break-after: always;
+  }
+  
+  .cover .logo {
+    font-size: 42pt;
+    color: #1F3A5F;
+    margin-bottom: 20px;
+  }
+  
+  .cover h1 {
+    font-size: 22pt;
+    color: #1F3A5F;
+    margin-bottom: 15px;
+    font-weight: 900;
+  }
+  
+  .cover h2 {
+    font-size: 15pt;
+    color: #4a6b8a;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  .cover .meta {
+    margin-top: 40px;
+    font-size: 11pt;
+    color: #333;
+    line-height: 2.4;
+  }
+  
+  .cover .meta strong {
+    color: #1F3A5F;
+  }
+  
+  .cover .badge {
+    display: inline-block;
+    background: #1F3A5F;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 11pt;
+    margin-top: 20px;
+  }
+  
+  h1.section-title {
+    font-size: 16pt;
+    color: #1F3A5F;
+    border-bottom: 3px solid #1F3A5F;
+    padding-bottom: 8px;
+    margin: 35px 0 20px;
+    font-weight: 900;
+  }
+  
+  h2.sub-title {
+    font-size: 13pt;
+    color: #2c5378;
+    margin: 22px 0 12px;
+    padding-right: 12px;
+    border-right: 5px solid #4a6b8a;
+    font-weight: 800;
+  }
+  
+  h3 {
+    font-size: 11.5pt;
+    color: #1F3A5F;
+    margin: 15px 0 8px;
+    font-weight: 700;
+  }
+  
+  p {
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+  
+  ul, ol {
+    margin: 10px 25px 15px 0;
+    padding-right: 15px;
+  }
+  
+  ul li, ol li {
+    margin-bottom: 6px;
+  }
+  
+  ul li::marker {
+    color: #4a6b8a;
+    font-weight: bold;
+  }
+  
+  .intro-box {
+    background: #f0f4fa;
+    border-right: 5px solid #1F3A5F;
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .intro-box p {
+    margin-bottom: 8px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0 20px;
+    font-size: 10.5pt;
+  }
+  
+  table th {
+    background: #1F3A5F;
+    color: #fff;
+    padding: 10px;
+    text-align: right;
+    font-weight: 700;
+    border: 1px solid #1F3A5F;
+  }
+  
+  table td {
+    padding: 9px 10px;
+    border: 1px solid #c8d4e2;
+    text-align: right;
+  }
+  
+  table tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+  
+  .panel-box {
+    background: #fbfcfe;
+    border: 1px solid #d8e0ea;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 15px 0;
+  }
+  
+  .panel-box h3 {
+    margin-top: 0;
+    color: #1F3A5F;
+    font-size: 12.5pt;
+    border-bottom: 1px dashed #b8c5d6;
+    padding-bottom: 8px;
+  }
+  
+  .alert-box {
+    background: #fff8e6;
+    border-right: 5px solid #e6a817;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin: 15px 0;
+  }
+  
+  .alert-box strong {
+    color: #a86800;
+  }
+  
+  .score-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 10pt;
+    margin-left: 5px;
+  }
+  
+  .score-green { background: #d4f4dd; color: #1a6e35; }
+  .score-yellow { background: #fdf3c9; color: #8a6a00; }
+  .score-orange { background: #ffe0c2; color: #a04a00; }
+  .score-red { background: #ffd6d6; color: #a80000; }
+  
+  .check-item {
+    background: #f8fafc;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin: 8px 0;
+    border-right: 3px solid #4a6b8a;
+    font-size: 10.5pt;
+  }
+  
+  .signature-area {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 30px;
+    page-break-inside: avoid;
+  }
+  
+  .signature-box {
+    flex: 1;
+    border: 2px solid #1F3A5F;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fafcff;
+  }
+  
+  .signature-box h3 {
+    text-align: center;
+    color: #1F3A5F;
+    margin-bottom: 20px;
+    font-size: 12pt;
+  }
+  
+  .signature-box .line {
+    border-bottom: 1px dashed #666;
+    height: 45px;
+    margin: 15px 0 8px;
+  }
+  
+  .signature-box .label {
+    font-size: 10pt;
+    color: #555;
+  }
+  
+  .final-word {
+    background: linear-gradient(135deg, #1F3A5F 0%, #2c5378 100%);
+    color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin: 35px 0;
+    page-break-inside: avoid;
+  }
+  
+  .final-word h2 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 14pt;
+    border: none;
+    padding: 0;
+  }
+  
+  .final-word p {
+    color: #f0f4fa;
+    line-height: 2;
+  }
+  
+  .final-word strong {
+    color: #ffd97d;
+  }
+  
+  .page-break {
+    page-break-after: always;
+  }
+  
+  .no-break {
+    page-break-inside: avoid;
+  }
+  
+  hr.divider {
+    border: none;
+    border-top: 2px dotted #c8d4e2;
+    margin: 30px 0;
+  }
+  
+  @media print {
+    body {
+      padding: 0;
+      font-size: 10.5pt;
+    }
+    
+    .cover {
+      padding: 40px 20px;
+    }
+    
+    h1.section-title {
+      page-break-after: avoid;
+    }
+    
+    h2.sub-title {
+      page-break-after: avoid;
+    }
+    
+    .panel-box {
+      page-break-inside: avoid;
+    }
+    
+    table {
+      page-break-inside: avoid;
+    }
+    
+    a {
+      color: #1F3A5F;
+      text-decoration: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== صفحه جلد ========== -->
+<div class="cover">
+  <div class="logo">🏭</div>
+  <h1>سامانه هوشمند جامع کاشی شایان</h1>
+  <h2>سند معرفی و پیش‌قرارداد طراحی و راه‌اندازی</h2>
+  
+  <div class="meta">
+    <div><strong>شماره سند:</strong> ۱۴۰۳/۰۰۱</div>
+    <div><strong>تاریخ:</strong> ..............................</div>
+    <div><strong>تهیه‌کننده:</strong> مجتبی پایدار اردکانی</div>
+    <div><strong>مخاطب:</strong> مدیرعامل محترم و هیئت مدیره کارخانه کاشی شایان</div>
+  </div>
+  
+  <div class="badge">🚀 یک سیستم عامل هوشمند، نه یک وب‌سایت معمولی</div>
+</div>
+
+<!-- ========== مقدمه مدیریتی ========== -->
+<h1 class="section-title">مقدمه مدیریتی</h1>
+
+<p>جناب مدیرعامل،</p>
+
+<div class="intro-box">
+  <p>سامانه‌ای که در این سند معرفی می‌شود، <strong>یک وب‌سایت معمولی نیست</strong>. این یک <strong>سیستم عامل هوشمند کسب‌وکار</strong> است که تمام ارکان کارخانه شما را از فروش تا انبار، از حسابداری تا مدیریت نمایندگان، در یک پلتفرم یکپارچه با تکیه بر <strong>هوش مصنوعی</strong> و <strong>استعلام برخط سامانه شاهکار</strong> مدیریت می‌کند.</p>
+</div>
+
+<p><strong>هدف نهایی این سامانه:</strong></p>
+<ul>
+  <li>حذف فرآیندهای دستی و کاغذی</li>
+  <li>کاهش خطای انسانی تا ۹۰٪</li>
+  <li>جلوگیری از ضرر قبل از وقوع (چک برگشتی، اتمام موجودی، تخلف نماینده)</li>
+  <li>تصمیم‌گیری داده‌محور برای مدیرعامل</li>
+  <li>افزایش رضایت نمایندگان و مشتریان</li>
+</ul>
+
+<p>این سامانه به شما یک <strong>چشم نامرئی</strong> می‌دهد که همیشه روی تمام کسب‌وکارتان باز است.</p>
+
+<!-- ========== بخش اول ========== -->
+<h1 class="section-title">بخش اول: قابلیت‌های سامانه</h1>
+
+<h2 class="sub-title">۱. پنل مدیریت عامل (کنترل کامل)</h2>
+<div class="panel-box">
+  <ul>
+    <li><strong>داشبورد مدیریتی لحظه‌ای:</strong> فروش امروز، فروش ماه، موجودی کل، چک‌های در جریان، عملکرد پرسنل — همه در یک نگاه</li>
+    <li><strong>کنترل سطوح دسترسی:</strong> تعیین سطح دسترسی برای انبار، حسابداری، فروش، طراح و نمایندگان</li>
+    <li><strong>گزارش‌های تحلیلی هوشمند:</strong> پیش‌بینی فروش، تحلیل روند بازار، شناسایی محصولات پرفروش</li>
+    <li><strong>تأیید نهایی معاملات حساس:</strong> فروش چکی، تخفیف‌های خاص، تأیید نمایندگی جدید</li>
+    <li><strong>پنل تحلیل نمایندگان (هوشمند):</strong> جزئیات کامل در بخش دوم این سند</li>
+  </ul>
+</div>
+
+<h2 class="sub-title">۲. پنل مدیر فروش</h2>
+<div class="panel-box">
+  <ul>
+    <li>نظارت کامل بر درخواست‌ها، پیش‌فاکتورها و روند فروش</li>
+    <li>تأیید یا رد شرایط چکی بر اساس <strong>پیش‌پرداخت تعیین‌شده</strong></li>
+    <li><strong>دریافت هشدار پیامکی هوشمند</strong> در صورت کاهش موجودی هر کاشی به زیر مرز تعیین‌شده</li>
+    <li>مدیریت قیمت‌گذاری و سیاست‌های فروش</li>
+    <li>مشاهده گزارش عملکرد پرسنل فروش</li>
+  </ul>
+</div>
+
+<h2 class="sub-title">۳. پنل پرسنل فروش</h2>
+<div class="panel-box">
+  <ul>
+    <li>مشاهده و رسیدگی به درخواست‌های مشتریان</li>
+    <li>ثبت سفارش و ارجاع به مراحل بعدی (انبار، حسابداری)</li>
+    <li>پیگیری وضعیت سفارش‌ها تا تحویل</li>
+    <li>دسترسی به تاریخچه خرید مشتری</li>
+  </ul>
+</div>
+
+<h2 class="sub-title">۴. پنل انباردار محصول</h2>
+<div class="panel-box">
+  <ul>
+    <li><strong>آپلود روزانه موجودی:</strong> انباردار هر روز صبح فایل موجودی را آپلود می‌کند؛ سامانه به‌صورت <strong>هوشمند</strong> تشخیص می‌دهد کدام کاشی چقدر موجودی دارد</li>
+    <li><strong>آپلود تصویر بارگیری تریلی:</strong> برای هر سفارش، تصاویر بارگیری ثبت می‌شود</li>
+    <li><strong>ارسال لینک پیامکی به مشتری:</strong> مشتری با دریافت پیامک، لینک را باز می‌کند و بارگیری را تأیید می‌کند</li>
+    <li><strong>تأیید نهایی خروج بار:</strong> فقط پس از تأیید مشتری، اجازه خروج بار از کارخانه صادر می‌شود</li>
+    <li>گزارش موجودی و هشدار خودکار کمبود</li>
+  </ul>
+</div>
+
+<h2 class="sub-title">۵. پنل حسابداری</h2>
+<div class="panel-box">
+  <ul>
+    <li>مشاهده تصاویر چک‌های آپلودشده توسط مشتری</li>
+    <li><strong>استعلام خودکار چک</strong> از سامانه شاهکار</li>
+    <li>امکان استعلام دستی مجدد</li>
+    <li>ثبت تحویل فیزیکی چک و تأیید نهایی (تیک تأیید)</li>
+    <li>گزارش‌گیری مالی و تطبیق پرداخت‌ها</li>
+    <li>مدیریت چک‌های در جریان، وصول‌شده و برگشتی</li>
+  </ul>
+</div>
+
+<h2 class="sub-title">۶. پنل طراح کاشی</h2>
+<div class="panel-box">
+  <ul>
+    <li>افزودن محصول جدید با آپلود تصویر</li>
+    <li><strong>قرارگیری خودکار در کاتالوگ دیجیتال</strong></li>
+    <li><strong>چیدمان هوشمند کاشی توسط هوش مصنوعی:</strong> سامانه به‌صورت خودکار چند چیدمان پیشنهادی از کاشی تولید می‌کند</li>
+    <li>تأیید نهایی طراح و انتشار در سایت</li>
+    <li>مدیریت کاتالوگ محصولات</li>
+  </ul>
+</div>
+
+<h2 class="sub-title">۷. پنل مشتریان و نمایندگان (غیرعمومی)</h2>
+<div class="panel-box">
+  <ul>
+    <li><strong>سایت عمومی نیست:</strong> فقط نمایندگان تأییدشده دسترسی خرید دارند</li>
+    <li><strong>مشاهده تصاویر کاشی‌ها برای عموم آزاد است</strong>، اما خرید نیازمند ثبت‌نام و تأیید کارخانه است</li>
+  </ul>
+  <p><strong>فرآیند درخواست نمایندگی:</strong></p>
+  <ul>
+    <li>آپلود تصویر کارت ملی (پشت و رو)</li>
+    <li>استعلام خودکار از سامانه شاهکار</li>
+    <li>آپلود چک ضمانت + استعلام خودکار</li>
+    <li>آپلود جواز کسب (اختیاری)</li>
+    <li>مطالعه و امضای <strong>قرارداد دیجیتال نمایندگی</strong> (جزئیات در بخش سوم)</li>
+  </ul>
+  <p>پس از تأیید کارخانه: مشاهده موجودی، ثبت سفارش، دریافت پیش‌فاکتور PDF و مشاهده تاریخچه سفارش‌ها و چک‌ها</p>
+</div>
+
+<h2 class="sub-title">۸. استعلامات هوشمند (سامانه شاهکار)</h2>
+<div class="panel-box">
+  <ul>
+    <li>استعلام دقیق مشتریان جدید</li>
+    <li>استعلام خودکار چک‌های آپلودشده</li>
+    <li>استعلام کارت ملی متقاضیان نمایندگی</li>
+    <li>گزارش کامل استعلام‌ها برای مدیریت</li>
+  </ul>
+</div>
+
+<h2 class="sub-title">۹. هوش مصنوعی و اتوماسیون</h2>
+<div class="panel-box">
+  <ul>
+    <li><strong>تولید پیش‌فاکتور خودکار PDF</strong> پس از تأیید نهایی</li>
+    <li><strong>هشدار مرز موجودی:</strong> ارسال پیامک خودکار به مدیر فروش</li>
+    <li><strong>تشخیص هوشمند موجودی</strong> از فایل آپلودشده</li>
+    <li><strong>چیدمان خودکار کاشی</strong> توسط AI</li>
+    <li><strong>پیش‌بینی تقاضا</strong> و تحلیل رفتار مشتریان</li>
+    <li><strong>تحلیل هوشمند عملکرد نمایندگان</strong> (بخش دوم)</li>
+  </ul>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== بخش دوم ========== -->
+<h1 class="section-title">بخش دوم: پنل تحلیل هوشمند نمایندگان</h1>
+
+<p>یکی از مهم‌ترین بخش‌های این سامانه، <strong>تحلیل ۳۶۰ درجه هر نماینده</strong> است. مدیرعامل با کلیک روی هر نماینده، گزارش کاملی از وضعیت او می‌بیند.</p>
+
+<h2 class="sub-title">۱. کارت امتیاز نماینده (Score از ۱۰۰)</h2>
+<p>هوش مصنوعی بر اساس ۷ فاکتور، به هر نماینده امتیاز می‌دهد:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>فاکتور</th>
+      <th>وزن</th>
+      <th>توضیح</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>حجم خرید</td><td>۲۵٪</td><td>مجموع فروش ۳ ماه اخیر</td></tr>
+    <tr><td>روند رشد</td><td>۲۰٪</td><td>مقایسه با ماه و فصل قبل</td></tr>
+    <tr><td>سلامت چک‌ها</td><td>۲۰٪</td><td>تعداد چک برگشتی و تأخیر</td></tr>
+    <tr><td>سرعت تسویه</td><td>۱۰٪</td><td>میانگین فاصله صدور تا تسویه</td></tr>
+    <tr><td>تنوع خرید</td><td>۱۰٪</td><td>خرید از چند مدل کاشی</td></tr>
+    <tr><td>تعامل و پاسخ‌دهی</td><td>۵٪</td><td>سرعت تأیید بارگیری و پاسخ پیامک</td></tr>
+    <tr><td>سابقه کلی</td><td>۱۰٪</td><td>مدت همکاری + رفتار کلی</td></tr>
+  </tbody>
+</table>
+
+<p><strong>دسته‌بندی خودکار:</strong></p>
+<ul>
+  <li><span class="score-badge score-green">🟢 ۸۰–۱۰۰</span> نماینده طلایی</li>
+  <li><span class="score-badge score-yellow">🟡 ۶۰–۷۹</span> نماینده فعال</li>
+  <li><span class="score-badge score-orange">🟠 ۴۰–۵۹</span> نیاز به بررسی</li>
+  <li><span class="score-badge score-red">🔴 زیر ۴۰</span> در خطر قطع همکاری</li>
+</ul>
+
+<h2 class="sub-title">۲. نمودار روند عملکرد ۶ ماهه</h2>
+<ul>
+  <li>نمودار فروش ماهانه</li>
+  <li>نمودار چک‌های سالم vs برگشتی</li>
+  <li>نمودار تعداد سفارش‌ها</li>
+  <li>نمودار رشد/افت فصلی</li>
+</ul>
+<p>مدیرعامل در یک نگاه می‌فهمد چه کسی در حال رشد و چه کسی در حال افت است.</p>
+
+<h2 class="sub-title">۳. هشدار هوشمند افت عملکرد (AI Alert)</h2>
+<p>هوش مصنوعی به‌صورت خودکار الگوهای خطرناک را تشخیص می‌دهد و هشدار می‌دهد:</p>
+
+<div class="alert-box">
+  <p>⚠️ <strong>هشدار:</strong> نماینده [نام] در ۲ ماه اخیر <strong>۳۵٪ افت فروش</strong> داشته و <strong>۲ چک با تأخیر</strong> پرداخت کرده است. الگوی رفتاری ایشان مشابه نمایندگانی است که معمولاً دچار مشکل مالی می‌شوند.</p>
+</div>
+
+<p><strong>اقدامات پیشنهادی AI:</strong></p>
+<ul>
+  <li>📞 تماس تلفنی جهت جویای احوال</li>
+  <li>📅 دعوت حضوری به کارخانه</li>
+  <li>📊 بررسی شرایط بازار منطقه‌ای</li>
+  <li>⏸️ تعلیق موقت فروش چکی تا بررسی</li>
+  <li>🤝 ارسال پیشنهاد تشویقی برای بازگشت به روند</li>
+</ul>
+
+<p>مدیر می‌تواند روی هرکدام کلیک کند و <strong>یادداشت ثبت کند</strong> (مثلاً «تماس گرفتم، مشکل خانوادگی داشت» یا «شرایط بازار محلی خراب است»).</p>
+
+<h2 class="sub-title">۴. پرونده کامل نماینده</h2>
+<ul>
+  <li>اطلاعات هویتی: کارت ملی، جواز کسب، آدرس، قرارداد امضاشده</li>
+  <li>تاریخچه کامل سفارش‌ها با PDF پیش‌فاکتورها</li>
+  <li>تاریخچه چک‌ها با وضعیت (سالم / برگشتی / در جریان)</li>
+  <li>تصاویر بارگیری تأییدشده</li>
+  <li>یادداشت‌های داخلی پرسنل (مخفی از نماینده)</li>
+  <li>لاگ تماس‌ها: کی، کِی، چی گفت</li>
+</ul>
+
+<h2 class="sub-title">۵. مقایسه با سایر نمایندگان</h2>
+<table>
+  <thead>
+    <tr>
+      <th>معیار</th>
+      <th>این نماینده</th>
+      <th>میانگین</th>
+      <th>بهترین</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>فروش ماهانه</td><td>۴۵۰ م</td><td>۳۲۰ م</td><td>۸۹۰ م</td></tr>
+    <tr><td>چک برگشتی</td><td>۲</td><td>۰.۵</td><td>۰</td></tr>
+    <tr><td>رشد فصلی</td><td>-۱۵٪</td><td>+۸٪</td><td>+۴۲٪</td></tr>
+  </tbody>
+</table>
+
+<h2 class="sub-title">۶. دکمه‌های اقدام سریع</h2>
+<ul>
+  <li>📞 تماس</li>
+  <li>📩 ارسال پیامک</li>
+  <li>📅 دعوت حضوری (با ارسال خودکار دعوت‌نامه PDF)</li>
+  <li>🚫 تعلیق موقت سفارش</li>
+  <li>📝 ثبت یادداشت</li>
+  <li>📊 دانلود گزارش PDF نماینده</li>
+  <li>🎁 ارسال پیشنهاد تشویقی</li>
+</ul>
+
+<h2 class="sub-title">۷. گزارش هفتگی خودکار به مدیرعامل</h2>
+<p>هر هفته یک گزارش PDF خودکار برای مدیرعامل ارسال می‌شود شامل:</p>
+<ul>
+  <li>نمایندگان در حال رشد</li>
+  <li>نمایندگان در خطر</li>
+  <li>نمایندگان نیازمند تماس</li>
+  <li>پیشنهادات AI برای هفته پیش رو</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ========== بخش سوم ========== -->
+<h1 class="section-title">بخش سوم: قرارداد دیجیتال نمایندگی با امضای الکترونیک</h1>
+
+<p>برای ثبت‌نام نماینده جدید، فرآیند کاملاً دیجیتال و قانونی طراحی شده است.</p>
+
+<h3>مرحله ۱: ثبت‌نام اولیه</h3>
+<p>نام، شماره موبایل، ایمیل، شهر، نوع فعالیت</p>
+
+<h3>مرحله ۲: تکمیل مدارک</h3>
+<ul>
+  <li>آپلود کارت ملی (پشت و رو)</li>
+  <li>آپلود جواز کسب (اختیاری)</li>
+  <li>آپلود چک ضمانت</li>
+  <li><strong>استعلام خودکار شاهکار</strong> (کارت ملی + چک)</li>
+</ul>
+
+<h3>مرحله ۳: مطالعه قرارداد دیجیتال</h3>
+<ul>
+  <li>📜 <strong>متن کامل قرارداد</strong> در صفحه نمایش داده می‌شود</li>
+  <li>✅ <strong>تیک تأیید اجباری برای هر بند مهم</strong> (نه یک تیک کلی)</li>
+  <li>⏱️ <strong>ثبت زمان مطالعه:</strong> سیستم ثبت می‌کند کاربر چند دقیقه وقت گذاشته</li>
+  <li>📱 <strong>اسکرول اجباری:</strong> تا انتهای قرارداد نخواند، دکمه امضا فعال نمی‌شود</li>
+</ul>
+
+<p><strong>نمونه بندهای تأییدی:</strong></p>
+<div class="check-item">☐ اینجانب متعهد می‌شوم چک‌های صادره در وجه کارخانه کاشی شایان دارای موجودی کافی باشد.</div>
+<div class="check-item">☐ اینجانب می‌پذیرم در صورت برگشت چک، کارخانه حق تعلیق سفارشات را دارد.</div>
+<div class="check-item">☐ اینجانب موافقم اطلاعاتم جهت استعلام از سامانه شاهکار استفاده شود.</div>
+<div class="check-item">☐ اینجانب متعهد می‌شوم قیمت‌های خرید را به‌عنوان نماینده رسمی محرمانه نگه دارم.</div>
+
+<h3>مرحله ۴: امضای دیجیتال</h3>
+<p>سه روش امضا (روش پیشنهادی: ترکیبی):</p>
+<ul>
+  <li><strong>الف) امضای انگشتی:</strong> کاربر با انگشت روی صفحه امضا می‌کند</li>
+  <li><strong>ب) کد تأیید پیامکی (OTP):</strong> کد ۶ رقمی به موبایل ارسال می‌شود</li>
+  <li><strong>ج) ترکیبی (پیشنهادی):</strong> هم امضای انگشتی، هم کد پیامکی + ثبت IP + اثر انگشت دستگاه</li>
+</ul>
+
+<h3>مرحله ۵: تأیید نهایی کارخانه</h3>
+<ul>
+  <li>قرارداد امضاشده به پنل مدیر می‌رود</li>
+  <li>مدیر بررسی می‌کند؛ در صورت تأیید → نماینده فعال می‌شود</li>
+  <li>در صورت رد → دلیل به کاربر اعلام می‌شود</li>
+</ul>
+
+<h3>مرحله ۶: آرشیو قرارداد</h3>
+<ul>
+  <li><strong>PDF قرارداد با امضای دیجیتال + QR Code</strong> ذخیره می‌شود</li>
+  <li>QR Code لینک به نسخه آنلاین قرارداد دارد</li>
+  <li>یک کپی برای نماینده ایمیل/پیامک می‌شود</li>
+  <li>یک کپی در پرونده نماینده در پنل مدیریت می‌ماند</li>
+</ul>
+
+<h2 class="sub-title">📜 خلاصه مواد قرارداد نمایندگی</h2>
+
+<p><strong>ماده ۱ — موضوع قرارداد:</strong> اعطای نمایندگی فروش محصولات کارخانه کاشی شایان</p>
+<p><strong>ماده ۲ — مدت قرارداد:</strong> یک سال شمسی، قابل تمدید با توافق طرفین</p>
+
+<p><strong>ماده ۳ — تعهدات نماینده:</strong></p>
+<ul>
+  <li>رعایت قیمت‌های مصوب کارخانه</li>
+  <li>حفظ محرمانگی اطلاعات تجاری</li>
+  <li>پرداخت به‌موقع چک‌ها</li>
+  <li>ارائه گزارش فروش ماهانه</li>
+</ul>
+
+<p><strong>ماده ۴ — شرایط فروش چکی:</strong></p>
+<ul>
+  <li>فروش چکی مشروط به تأیید مدیر فروش و پرداخت پیش‌پرداخت</li>
+  <li>چک باید در وجه کارخانه و با استعلام تأییدشده باشد</li>
+  <li>چک برگشتی موجب تعلیق فوری نمایندگی می‌شود</li>
+</ul>
+
+<p><strong>ماده ۵ — شرایط فسخ:</strong></p>
+<ul>
+  <li>عدم پرداخت ۲ چک متوالی</li>
+  <li>تخلف از قیمت‌گذاری مصوب</li>
+  <li>کشف مدارک جعلی</li>
+</ul>
+
+<p><strong>ماده ۶ — حل اختلاف:</strong> ارجاع به دادگاه‌های صالحه</p>
+
+<!-- ========== بخش چهارم ========== -->
+<h1 class="section-title">بخش چهارم: مزایای کلیدی برای کارخانه کاشی شایان</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>مزیت</th>
+      <th>نتیجه تجاری</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>حذف کاغذبازی و فرآیند دستی</td><td>صرفه‌جویی در زمان و هزینه</td></tr>
+    <tr><td>استعلام خودکار شاهکار</td><td>کاهش ریسک چک برگشتی</td></tr>
+    <tr><td>کنترل کامل مدیریت عامل</td><td>تصمیم‌گیری سریع و دقیق</td></tr>
+    <tr><td>هشدار پیامکی موجودی</td><td>جلوگیری از اتمام ناگهانی محصول</td></tr>
+    <tr><td>تأیید بارگیری با تصویر</td><td>کاهش اختلافات با مشتری</td></tr>
+    <tr><td>پنل اختصاصی نمایندگان</td><td>وفاداری و نظم فروش</td></tr>
+    <tr><td>چیدمان هوشمند AI</td><td>بازاریابی جذاب‌تر و فروش بیشتر</td></tr>
+    <tr><td>تحلیل هوشمند نمایندگان</td><td>جلوگیری از ضرر قبل از وقوع</td></tr>
+    <tr><td>قرارداد دیجیتال</td><td>سرعت جذب نماینده + امنیت قانونی</td></tr>
+  </tbody>
+</table>
+
+<!-- ========== بخش پنجم ========== -->
+<h1

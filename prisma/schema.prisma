@@ -1,0 +1,256 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CEO
+  SALES_MANAGER
+  SALES_STAFF
+  WAREHOUSE
+  ACCOUNTING
+  DESIGNER
+  DEALER
+}
+
+enum DealerStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  REJECTED
+}
+
+enum OrderStatus {
+  DRAFT
+  PENDING
+  APPROVED
+  REJECTED
+  LOADED
+  DELIVERED
+}
+
+enum CheckStatus {
+  UPLOADED
+  INQUIRED
+  RECEIVED
+  BOUNCED
+  CLEARED
+}
+
+model User {
+  id           String     @id @default(cuid())
+  username     String     @unique
+  name         String
+  phone        String?
+  passwordHash String
+  role         Role
+  dealer       Dealer?
+  createdAt    DateTime   @default(now())
+  audits       AuditLog[]
+  notes        Note[]
+}
+
+model Dealer {
+  id         String       @id @default(cuid())
+  userId     String       @unique
+  user       User         @relation(fields: [userId], references: [id])
+  company    String
+  nationalId String
+  province   String?      // استان نماینده برای نقشه
+  status     DealerStatus @default(PENDING)
+  score      Int          @default(0)
+  orders     Order[]
+  checks     Check[]
+  contracts  Contract[]
+  documents  Document[]
+  notes      Note[]
+  createdAt  DateTime     @default(now())
+}
+
+model Product {
+  id              String         @id @default(cuid())
+  code            String         @unique
+  name            String
+  size            String
+  imageUrl        String         // عکس کاتالوگی
+  aiLayoutImageUrl String?       // عکس چیدمان (AI)
+  liveImageUrl     String?       // عکس زنده (واقعی)
+  price           Int
+  stock           Json           @default("{\"1\":0,\"2\":0,\"3\":0,\"4\":0,\"5\":0,\"6\":0}")
+  minStock        Int            @default(100)
+  published       Boolean        @default(false)
+  discountPercent Int            @default(0)
+  discountEndsAt  DateTime?
+  
+  brand           String?
+  glaze           String?
+  bodyMaterial    String?
+  planName        String?
+
+  grade2Discount  Int            @default(10)
+  grade3Discount  Int            @default(20)
+  grade4Discount  Int            @default(30)
+  grade5Discount  Int            @default(40)
+  grade6Discount  Int            @default(50)
+
+  banners         Banner[]
+  orderItems      Order[]
+  logs            InventoryLog[]
+}
+
+model Order {
+  id              String        @id @default(cuid())
+  dealerId        String
+  dealer          Dealer        @relation(fields: [dealerId], references: [id])
+  productId       String
+  product         Product       @relation(fields: [productId], references: [id])
+  quantity        Int
+  grade           String        @default("1")
+  createdById     String?
+  discountPercent Int           @default(0)
+  total           Int
+  status          OrderStatus   @default(PENDING)
+  proforma        Proforma?
+  photos          LoadingPhoto[]
+  payments        Payment[]
+  createdAt       DateTime      @default(now())
+}
+
+model Proforma {
+  id        String   @id @default(cuid())
+  orderId   String   @unique
+  order     Order    @relation(fields: [orderId], references: [id])
+  pdfUrl    String
+  createdAt DateTime @default(now())
+}
+
+model Check {
+  id       String      @id @default(cuid())
+  dealerId String
+  dealer   Dealer      @relation(fields: [dealerId], references: [id])
+  imageUrl String
+  amount   Int
+  dueDate  DateTime
+  status   CheckStatus @default(UPLOADED)
+}
+
+model Payment {
+  id      String   @id @default(cuid())
+  orderId String
+  order   Order    @relation(fields: [orderId], references: [id])
+  amount  Int
+  paidAt  DateTime @default(now())
+}
+
+model InventoryLog {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  delta     Int
+  createdAt DateTime @default(now())
+}
+
+model LoadingPhoto {
+  id          String    @id @default(cuid())
+  orderId     String
+  order       Order     @relation(fields: [orderId], references: [id])
+  url         String
+  confirmedAt DateTime?
+}
+
+model Contract {
+  id        String     @id @default(cuid())
+  dealerId  String
+  dealer    Dealer     @relation(fields: [dealerId], references: [id])
+  version   String
+  pdfUrl    String?
+  approved  Boolean    @default(false)
+  signature Signature?
+}
+
+model Signature {
+  id              String   @id @default(cuid())
+  contractId      String   @unique
+  contract        Contract @relation(fields: [contractId], references: [id])
+  imageData       String
+  otpVerified     Boolean
+  ip              String
+  deviceHash      String
+  clausesAccepted Json
+  readSeconds     Int
+  signedAt        DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String
+  detail    String?
+  createdAt DateTime @default(now())
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  dealerId  String
+  dealer    Dealer   @relation(fields: [dealerId], references: [id])
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+  text      String
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  text      String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model InquiryLog {
+  id        String   @id @default(cuid())
+  type      String
+  input     String
+  result    String
+  userId    String?
+  createdAt DateTime @default(now())
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  dealerId  String
+  dealer    Dealer   @relation(fields: [dealerId], references: [id])
+  kind      String
+  url       String
+  createdAt DateTime @default(now())
+}
+
+model Otp {
+  userId    String   @id
+  codeHash  String
+  expiresAt DateTime
+  attempts  Int      @default(0)
+}
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  username  String
+  createdAt DateTime @default(now())
+}
+
+model Banner {
+  id        String    @id @default(cuid())
+  title     String
+  subtitle  String?
+  imageUrl  String?
+  productId String?
+  product   Product?  @relation(fields: [productId], references: [id])
+  active    Boolean   @default(true)
+  endsAt    DateTime?
+  createdAt DateTime  @default(now())
+}

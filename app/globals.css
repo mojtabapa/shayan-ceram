@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============ تنظیمات پایه ============ */
+:root {
+  --primary: #C8102E;
+  --primary-dark: #A00D24;
+  --secondary: #1E3A5F;
+  --secondary-dark: #152A47;
+  --accent: #E6A817;
+  --bg-light: #F8F9FB;
+  --dark-bg: #0F1B2D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Vazirmatn, Tahoma, sans-serif;
+  background-color: var(--bg-light);
+  color: #1A1A1A;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ============ اسکرول‌بار زیبا ============ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* ============ انتخاب متن ============ */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* ============ کلاس‌های کاربردی ============ */
+@layer components {
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-secondary px-6 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:bg-secondary-dark hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-primary px-6 py-3 font-bold text-primary transition-all duration-300 hover:bg-primary hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 px-6 py-3 font-bold text-white transition-all duration-300 hover:bg-white/10 hover:border-white/60;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .section-title {
+    @apply mb-2 text-center text-3xl font-bold text-secondary md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mx-auto mb-10 max-w-2xl text-center text-muted;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border-2 border-gray-200 bg-white p-3 transition-colors focus:border-primary focus:outline-none;
+  }
+
+  .glass {
+    @apply border border-white/20 bg-white/10 backdrop-blur-lg;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-l from-primary via-accent to-primary bg-clip-text text-transparent;
+  }
+}
+
+/* ============ انیمیشن‌های ویژه ============ */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes tileFloat {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+/* ============ اصلاحات RTL ============ */
+[dir="rtl"] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+/* ============ مخفی کردن اسکرول‌بار افقی ============ */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
